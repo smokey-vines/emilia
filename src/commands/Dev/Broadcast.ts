@@ -29,12 +29,12 @@ export default class Command extends BaseCommand {
 			return void (await M.reply(`Please provide the Broadcast Message.`));
 		const term = joined.trim();
 		const images = [
-			"https://wallpapercave.com/wp/wp3144753.jpg",
-			"https://wallpapercave.com/wp/wp4782018.jpg",
-			"https://wallpaperaccess.com/full/1326836.jpg",
-			"https://wallpapermemory.com/uploads/711/chitoge-kirisaki-wallpaper-full-hd-323316.jpg",
-			"https://data.whicdn.com/images/304776416/original.jpg",
-			"https://i.pinimg.com/564x/ca/e7/8a/cae78ad7f8e6459ad20bde350e2eb78b.jpg",
+			"https://wallpapercave.com/wp/wp5937284.jpg",
+			"https://wallpapercave.com/wp/wp8410014.jpg",
+			"https://wallpapercave.com/wp/wp8410043.jpg",
+			"https://wallpapercave.com/wp/wp8410048.jpg",
+			"https://wallpapercave.com/wp/wp5937347.jpg",
+			"https://wallpapercave.com/wp/wp8410073.jpg",
 		];
 		const selected = images[Math.floor(Math.random() * images.length)];
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -45,7 +45,7 @@ export default class Command extends BaseCommand {
 			.map((jids) => (jids.includes("g.us") ? jids : null))
 			.filter((v) => v);
 		for (let i = 0; i < chats.length; i++) {
-			const text = `*🌟「 CHITOGE BROADCAST 」🌟*\n\n${term}\n\n Regards ~ *${M.sender.username}*`;
+			const text = `*🎉「 RIKKA 」🎉*\n\n${term}\n\n Regards ~ *${M.sender.username}*`;
 			this.client.sendMessage(chats[i], { url: selected }, MessageType.image, {
 				caption: `${text}`,
 				contextInfo: {
