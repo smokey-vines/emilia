@@ -1,33 +1,23 @@
 /** @format */
 
-import { MessageType } from "@adiwajshing/baileys";
+import { MessageType, Mimetype } from "@adiwajshing/baileys";
 import MessageHandler from "../../Handlers/MessageHandler";
 import BaseCommand from "../../lib/BaseCommand";
 import WAClient from "../../lib/WAClient";
-import { IParsedArgs, ISimplifiedMessage } from "../../typings";
+import { ISimplifiedMessage } from "../../typings";
 
 export default class Command extends BaseCommand {
 	constructor(client: WAClient, handler: MessageHandler) {
 		super(client, handler, {
 			command: "rikka",
-			description:
-				"gives pics of rikka.",
-			aliases: ["ri", "rk", "rip"],
+			description: "sends pics of rikka",
 			category: "rikka",
-			dm: true,
 			usage: `${client.config.prefix}rikka`,
-			modsOnly: true,
-			baseXp:10,
+			baseXp: 10,
 		});
 	}
 
-	run = async (
-		M: ISimplifiedMessage,
-		{ joined }: IParsedArgs
-	): Promise<void> => {
-		if (!joined)
-			return void (await M.reply(`Please provide the Broadcast Message.`));
-		const term = joined.trim();
+	run = async (M: ISimplifiedMessage): Promise<void> => {
 		const images = [
 			"https://wallpapercave.com/wp/wp3144753.jpg",
 			"https://wallpapercave.com/wp/wp4782018.jpg",
@@ -37,14 +27,10 @@ export default class Command extends BaseCommand {
 			"https://i.pinimg.com/564x/ca/e7/8a/cae78ad7f8e6459ad20bde350e2eb78b.jpg",
 		];
 		const selected = images[Math.floor(Math.random() * images.length)];
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	 {
-        return void this.client.sendMessage(
-			M.from,
-			{ url: chitoge }, MessageType.image, {
-				caption: `there you go`,
-				
-			});
-     }
-    }
+		const text = `*🎉THERE YOU GO🎉*\n\n`;
+			this.client.sendMessage( M.from, { url: selected }, MessageType.image, {
+				caption: `${text}`,
+			}
+		);
+	};
 }
