@@ -168,9 +168,9 @@ export default class MessageHandler {
 		const uptime = () => formatTime(process.uptime());
 		let text!: string
 		if (uptime() === "00:00:00" || uptime() === "00:00:01" || uptime() === "00:00:02" || uptime() === "00:00:03" || uptime() === "00:00:04" || uptime() === "00:00:05") {
-			`🚀 I am now active`
+			`_*🚀 I am now active*_`
 		} else {
-			text = `🚀 Reconnected!`
+			text = `_*🚀 Reconnected!*_`
 		}
 		await this.client.sendMessage("120363041185314873@g.us", text, MessageType.text)
 	}
