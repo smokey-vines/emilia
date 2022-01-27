@@ -16,8 +16,9 @@ export default class EventHandler {
 				}]`
 			)} in ${chalk.cyanBright(group?.subject || "Group")}`
 		);
+		const bot = await (await this.client.getGroupData(event.jid)).bot;
 		const data = await this.client.getGroupData(event.jid);
-		if (!data.events) return void null;
+		 if (!data.events || data.bot !== this.client.user.name) return void null;
 		const user = event.participants[0];
 		const contact = this.client.getContact(user);
 		const username =
