@@ -1,7 +1,7 @@
 <div align="center">
-<a href="https://coolwallpapers.me/5045071-anime-blonde-blue-eyes-chitoge-kirisaki-nisekoi.html"><img src="https://wallpapercave.com/wp/wp8410539.jpg" alt="chitoge" border="0"></a>
+<a href="https://coolwallpapers.me/5045071-anime-blonde-blue-eyes-chitoge-kirisaki-nisekoi.html"><img src="https://wallpapercave.com/wp/wp9999384.jpg" alt="chitoge" border="0"></a>
 
-# **Rikka : A WhatsApp BOT WITH RICH ANIME FEATURES**
+# **Lumine : A WhatsApp BOT WITH RICH ANIME FEATURES**
 
 [![CodeFactor](https://www.codefactor.io/repository/github/shineiichijo/chitoge/badge)](https://www.codefactor.io/repository/github/shineiichijo/chitoge)
 
