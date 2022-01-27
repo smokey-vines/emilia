@@ -19,20 +19,20 @@ export default class Command extends BaseCommand {
 
 	run = async (M: ISimplifiedMessage): Promise<void> => {
 		const images = [
-			"https://wallpapercave.com/wp/wp9322872.jpg",
-			"https://wallpapercave.com/wp/wp5978950.jpg",
-			"https://wallpapercave.com/wp/wp9322904.jpg",
-			"https://wallpapercave.com/wp/wp9322910.jpg",
-			"https://wallpapercave.com/wp/wp9322918.jpg",
-			"https://wallpapercave.com/wp/wp9322925.jpg",
-		        "https://wallpapercave.com/wp/wp9323033.jpg",
-		        "https://wallpapercave.com/wp/wp9323042.jpg",
-		        "https://wallpapercave.com/wp/wp9323064.jpg",
-		        "https://wallpapercave.com/wp/wp9323161.jpg",
-		        "https://wallpapercave.com/wp/wp9323183.jpg",
-		        "https://wallpapercave.com/wp/wp9323195.jpg",
-		        "https://wallpapercave.com/wp/wp9323310.jpg",
-		        "https://wallpapercave.com/wp/wp9323325.jpg",
+			"https://wallpapercave.com/wp/wp7487067.jpg",
+			"https://wallpapercave.com/wp/wp7486872.jpg",
+			"https://wallpapercave.com/wp/wp7487045.jpg",
+			"https://wallpapercave.com/wp/wp8467619.jpg",
+			"https://wallpapercave.com/wp/wp8467629.jpg",
+			"https://wallpapercave.com/wp/wp7648534.jpg",
+		        "https://wallpapercave.com/wp/wp8467660.jpg",
+		        "https://wallpapercave.com/wp/wp8467665.jpg",
+		        "https://wallpapercave.com/wp/wp7648633.jpg",
+		        "https://wallpapercave.com/wp/wp7940819.jpg",
+		        "https://wallpapercave.com/wp/wp8467681.jpg",
+		        "https://wallpapercave.com/wp/wp8467768.jpg",
+		        "https://wallpapercave.com/wp/wp7657219.jpg",
+		        "https://wallpapercave.com/wp/wp8467800.jpg",
 		];
 		const selected = images[Math.floor(Math.random() * images.length)];
 		const text = `*💖THERE YOU GO💖*\n\n`;
