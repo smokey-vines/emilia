@@ -9,10 +9,10 @@ import { ISimplifiedMessage } from "../../typings";
 export default class Command extends BaseCommand {
 	constructor(client: WAClient, handler: MessageHandler) {
 		super(client, handler, {
-			command: "emilia",
-			description: "sends pics of emilia",
-			category: "emilia",
-			usage: `${client.config.prefix}emilia`,
+			command: "lumine",
+			description: "sends pics of lumine",
+			category: "lumine",
+			usage: `${client.config.prefix}lumine`,
 			baseXp: 10,
 		});
 	}
