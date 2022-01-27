@@ -14,7 +14,6 @@ export default class Command extends BaseCommand {
 			category: "emilia",
 			usage: `${client.config.prefix}emilia`,
 			baseXp: 10,
-			dm: true,
 		});
 	}
 
