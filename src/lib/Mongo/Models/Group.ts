@@ -50,6 +50,10 @@ const GroupSchema = new Schema({
     required: false,
     default: false,
   },
+
+  bot: {
+    type: String
+  }
 });
 
 export default model<IGroupModel>("groups", GroupSchema);

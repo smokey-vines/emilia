@@ -82,6 +82,7 @@ export default class MessageHandler {
 					groupMetadata?.subject || "DM"
 				)}`
 			);
+		const bot = await (await this.client.getGroupData(M.from)).bot;
 		const command = this.commands.get(cmd) || this.aliases.get(cmd);
 		this.client.log(
 			`${chalk.green("CMD")} ${chalk.yellow(
@@ -90,6 +91,7 @@ export default class MessageHandler {
 				groupMetadata?.subject || "DM"
 			)}`
 		);
+		if (bot !== this.client.user.name && cmd !== "switch" || bot !== this.client.user.name && cmd !== "hi") return void null;
 		if (!command)
 			return void M.reply(
 				`No such command, Baka! Have you never seen someone use the command *${this.client.config.prefix}help*.`
