@@ -107,6 +107,7 @@ db.once("open", () => {
     start();
   });
   client.once("open", () => {
+    messageHandler.handleState()
     newsHandler.broadcastNews();
   });
 });
