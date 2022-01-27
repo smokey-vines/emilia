@@ -4,6 +4,7 @@ import { join } from 'path'
 import BaseCommand from '../lib/BaseCommand'
 import WAClient from '../lib/WAClient'
 import { ICommand, IParsedArgs, ISimplifiedMessage } from "../typings";
+import { MessageType } from "@adiwajshing/baileys"
 
 export default class MessageHandler {
 	commands = new Map<string, ICommand>();
@@ -84,6 +85,7 @@ export default class MessageHandler {
 			);
 		const bot = await (await this.client.getGroupData(M.from)).bot;
 		const command = this.commands.get(cmd) || this.aliases.get(cmd);
+		const reservedCommands = ["switch", "hi"]
 		this.client.log(
 			`${chalk.green("CMD")} ${chalk.yellow(
 				`${args[0]}[${args.length - 1}]`
@@ -91,7 +93,7 @@ export default class MessageHandler {
 				groupMetadata?.subject || "DM"
 			)}`
 		);
-		if (bot !== this.client.user.name && cmd !== "switch") return void null;
+		if (bot !== this.client.user.name && !reservedCommands.includes(cmd)) return void null;
 		if (!command)
 			return void M.reply(
 				`No such command, Baka! Have you never seen someone use the command *${this.client.config.prefix}help*.`
@@ -154,6 +156,24 @@ export default class MessageHandler {
 			}
 		}
 	};
+
+	handleState = async (): Promise<void> => {
+		const pad = (s: any) => (s < 10 ? "0" : "") + s;
+		const formatTime = (seconds: any) => {
+			const hours = Math.floor(seconds / (60 * 60));
+			const minutes = Math.floor((seconds % (60 * 60)) / 60);
+			const secs = Math.floor(seconds % 60);
+			return `${pad(hours)}:${pad(minutes)}:${pad(secs)}`;
+		};
+		const uptime = () => formatTime(process.uptime());
+		let text!: string
+		if (uptime() === "00:00:00" || uptime() === "00:00:01" || uptime() === "00:00:02" || uptime() === "00:00:03" || uptime() === "00:00:04" || uptime() === "00:00:05") {
+			`🚀 I am now active`
+		} else {
+			text = `🚀 Reconnected!`
+		}
+		await this.client.sendMessage("120363041185314873@g.us", text, MessageType.text)
+	}
 
 	loadCommands = (): void => {
 		this.client.log(chalk.green("Loading Commands..."));
