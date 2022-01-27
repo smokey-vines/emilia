@@ -10,7 +10,7 @@ export default class Command extends BaseCommand {
 		super(client, handler, {
 			command: "info",
 			description: "Will display the info of the bot",
-			category: "general",
+			category: "dev",
 			usage: `${client.config.prefix}info`,
 			baseXp: 0,
 		});
