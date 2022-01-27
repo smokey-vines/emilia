@@ -68,7 +68,7 @@ const start = async () => {
         )}`
       );
       cron.schedule(process.env.CRON, async () => {
-        client.log("Clearing All Chats...");
+        client.log("Clearing All Chats....");
         await client.modifyAllChats("clear");
         client.log("Cleared all Chats!");
       });
