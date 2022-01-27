@@ -27,7 +27,7 @@ export default class Command extends BaseCommand {
 			{
 				quoted: M.WAMessage,
 				mimetype: Mimetype.gif,
-				caption: `I am the eye of the wicked lord, member number zero, Rikka Takanashi!. Use something from *${this.client.config.prefix}help* list if you want anything. \n`,
+				caption: ` understand that my half-elf lineage, and other similarities to the witch, subject me to prejudice. However, I adamantly refuse to let my potential be plucked out simply for that reason.. Use something from *${this.client.config.prefix}help* list if you want anything. \n`,
 			}
 		);
 	};
