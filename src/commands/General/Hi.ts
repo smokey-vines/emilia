@@ -19,7 +19,7 @@ export default class Command extends BaseCommand {
 
 	run = async (M: ISimplifiedMessage): Promise<void> => {
 		const chitoge =
-			"https://c.tenor.com/9eI0jufQ5mkAAAPo/emilia-baka-emilia.mp4";
+			"https://c.tenor.com/Sr58qTClyC8AAAPo/genshin-impact-genshin.mp4";
 		return void this.client.sendMessage(
 			M.from,
 			{ url: chitoge },
@@ -27,7 +27,7 @@ export default class Command extends BaseCommand {
 			{
 				quoted: M.WAMessage,
 				mimetype: Mimetype.gif,
-				caption: ` understand that my half-elf lineage, and other similarities to the witch, subject me to prejudice. However, I adamantly refuse to let my potential be plucked out simply for that reason.. Use something from *${this.client.config.prefix}help* list if you want anything. \n`,
+				caption: ` The skies here are full of stars, but they aren't the same as the ones seen from my home. Use something from *${this.client.config.prefix}help* list if you want anything. \n`,
 			}
 		);
 	};
