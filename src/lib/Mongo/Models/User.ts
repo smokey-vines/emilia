@@ -20,6 +20,22 @@ const UserSchema = new Schema({
         type: Number,
         required: true,
         default: 0
+    },
+    wallet: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    bank: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    lastDaily: {
+        type: Number
+    },
+    lastRob: {
+        type: Number
     }
 })
 export default model<IUserModel>('users', UserSchema)
