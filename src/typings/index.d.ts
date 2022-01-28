@@ -52,6 +52,10 @@ export interface IUser {
   ban: boolean;
   warnings: number;
   Xp: number;
+  wallet: number;
+  bank: number;
+  lastDaily: number;
+  lastRob: number;
 }
 
 export interface IFeature {
