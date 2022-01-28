@@ -158,20 +158,12 @@ export default class MessageHandler {
 	};
 
 	handleState = async (): Promise<void> => {
-		const pad = (s: any) => (s < 10 ? "0" : "") + s;
-		const formatTime = (seconds: any) => {
-			const hours = Math.floor(seconds / (60 * 60));
-			const minutes = Math.floor((seconds % (60 * 60)) / 60);
-			const secs = Math.floor(seconds % 60);
-			return `${pad(hours)}:${pad(minutes)}:${pad(secs)}`;
-		};
-		const uptime = () => formatTime(process.uptime());
-		let text!: string
-		if (uptime() === "00:00:00" || uptime() === "00:00:01" || uptime() === "00:00:02" || uptime() === "00:00:03" || uptime() === "00:00:04" || uptime() === "00:00:05") {
-			`_*🚀 I am now active*_`
-		} else {
-			text = `_*🚀 Reconnected!*_`
-		}
+		const text = `_*🚀 I am now active*_`
+		await this.client.sendMessage("120363041185314873@g.us", text, MessageType.text)
+	}
+
+	sendReconnectMessage = async (): Promise<void> => {
+		const text = `_*🚀 Reconnected!*_`
 		await this.client.sendMessage("120363041185314873@g.us", text, MessageType.text)
 	}
 
