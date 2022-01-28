@@ -45,7 +45,7 @@ export default class Command extends BaseCommand {
     await M.reply(
       `*@${user.split("@")[0]}* gave *${amount} gold* to *@${
         target?.split("@")[0]
-      }*`,
+      }*🎉`,
       MessageType.text,
       undefined,
       [user || "", target!]
