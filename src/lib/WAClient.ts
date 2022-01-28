@@ -242,7 +242,57 @@ export default class WAClient extends Base {
       }).save();
   };
 
-  modifyAllChats = async (
+ deposit = async (jid: string, amount: number): Promise<void> => {
+    const result = await this.DB.user.updateMany(
+      { jid },
+      { $inc: { wallet: -amount, bank: amount } }
+    );
+    if (!result.nModified)
+      await new this.DB.user({
+        jid,
+        wallet: -amount,
+        bank: amount,
+      }).save();
+  };
+
+  withdraw = async (jid: string, amount: number): Promise<void> => {
+    const result = await this.DB.user.updateMany(
+      { jid },
+      { $inc: { wallet: amount, bank: -amount } }
+    );
+    if (!result.nModified)
+      await new this.DB.user({
+        jid,
+        wallet: amount,
+        bank: -amount,
+      }).save();
+  };
+
+  reduceGold = async (jid: string, amount: number): Promise<void> => {
+    const result = await this.DB.user.updateOne(
+      { jid },
+      { $inc: { wallet: -amount } }
+    );
+    if (!result.nModified)
+      await new this.DB.user({
+        jid,
+        wallet: -amount,
+      }).save();
+  };
+
+  addGold = async (jid: string, amount: number): Promise<void> => {
+    const result = await this.DB.user.updateOne(
+      { jid },
+      { $inc: { wallet: amount } }
+    );
+    if (!result.nModified)
+      await new this.DB.user({
+        jid,
+        wallet: amount,
+      }).save();
+  };
+
+modifyAllChats = async (
     action:
       | "archive"
       | "unarchive"
