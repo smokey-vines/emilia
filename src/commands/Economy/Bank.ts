@@ -8,10 +8,10 @@ import { MessageType, Mimetype } from "@adiwajshing/baileys";
 export default class Command extends BaseCommand {
   constructor(client: WAClient, handler: MessageHandler) {
     super(client, handler, {
-      command: "wallet",
-      description: "Displays user-wallet",
+      command: "bank",
+      description: "Displays user-bank",
       category: "economy",
-      usage: `${client.config.prefix}wallet`,
+      usage: `${client.config.prefix}bank`,
       baseXp: 10,
     });
   }
@@ -22,8 +22,8 @@ export default class Command extends BaseCommand {
     
 const buttons = [
   {
-    buttonId: "wallet",
-    buttonText: { displayText: `${this.client.config.prefix}bank` },
+    buttonId: "bank",
+    buttonText: { displayText: `${this.client.config.prefix}wallet` },
     type: 1,
   },
 ];
