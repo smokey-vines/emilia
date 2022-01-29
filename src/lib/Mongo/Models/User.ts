@@ -39,6 +39,9 @@ const UserSchema = new Schema({
     },
     lastGamble: {
         type: Number
+    },
+    lastSlot: {
+        type: Number
     }
 })
 export default model<IUserModel>('users', UserSchema)
