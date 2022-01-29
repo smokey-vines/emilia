@@ -56,7 +56,7 @@ export interface IUser {
   bank: number;
   lastDaily: number;
   lastRob: number;
-  lastGamble: number;
+  lastgamble: number;
 }
 
 export interface IFeature {
