@@ -12,6 +12,17 @@ export default class MessageHandler {
 	constructor(public client: WAClient) {}
 
 	handleMessage = async (M: ISimplifiedMessage): Promise<void> => {
+		if (M.WAMessage?.message?.buttonsResponseMessage) {
+      const res: any =
+        M.WAMessage?.message?.buttonsResponseMessage.selectedButtonId;
+      const command = this.commands.get(res);
+      const { args, groupMetadata, sender } = M;
+      if (
+        (await this.client.getGroupData(M.from)).bot !== this.client.user.name
+      )
+        return void null;
+      command?.run(M, this.parseArgs(args));
+    }
 		if (
 			!(M.chat === "dm") &&
 			M.WAMessage.key.fromMe &&

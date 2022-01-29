@@ -17,6 +17,7 @@ import {
   ISession,
   ISimplifiedMessage,
   IUserModel,
+  ICountdown
 } from "../typings";
 import Utils from "./Utils";
 import DatabaseHandler from "../Handlers/DatabaseHandler";
@@ -198,6 +199,15 @@ export default class WAClient extends Base {
     let user = await this.DB.user.findOne({ jid });
     if (!user)
       user = await new this.DB.user({
+        jid,
+      }).save();
+    return user;
+  };
+
+  getCd = async (jid: string): Promise<ICountdown> => {
+    let user = await this.DB.cd.findOne({ jid });
+    if (!user)
+      user = await new this.DB.cd({
         jid,
       }).save();
     return user;

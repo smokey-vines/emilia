@@ -4,6 +4,7 @@ import WAClient from "../../lib/WAClient";
 import { IParsedArgs, ISimplifiedMessage } from "../../typings";
 import { MessageType, Mimetype } from "@adiwajshing/baileys";
 import { Sticker, Categories, StickerTypes } from "wa-sticker-formatter";
+import ms from "parse-ms-js";
 
 export default class Command extends BaseCommand {
   constructor(client: WAClient, handler: MessageHandler) {
@@ -12,8 +13,9 @@ export default class Command extends BaseCommand {
       description: "Test your gambling skill.",
       aliases: ["gamble"],
       category: "economy",
-      usage: `${client.config.prefix}gamble <amount> [left/right] `,
+      usage: `${client.config.prefix}gamble <amount> [left/right] | ${client.config.prefix}gamble [left/right] <amount>`,
       baseXp: 30,
+
     });
   }
 
@@ -21,18 +23,20 @@ export default class Command extends BaseCommand {
     M: ISimplifiedMessage,
     { joined }: IParsedArgs
   ): Promise<void> => {
+    /*eslint-disable @typescript-eslint/no-explicit-any*/
     if (M.from !== "120363022488307199@g.us")
       return void M.reply(
         `You can't gamble here. Use ${this.client.config.prefix}support to get casino group link.`
       );
-    const time = 15000;
-      const cd = await (await this.client.getUser(M.sender.jid)).lastGamble;
-      if (time - (Date.now() - cd) > 0) {
-        return void M.reply(
-          `woah there slow down you can use this command after 15 secs`
-        );
-      }
     const user = M.sender.jid;
+    const time = 25000;
+    const cd = await (await this.client.getCd(user)).gamble;
+    if (time - (Date.now() - cd) > 0) {
+      const timeLeft = ms(time - (Date.now() - cd));
+      return void M.reply(
+        `Woahh! Slow down, you can gamble again in *${timeLeft.seconds} second(s)*`
+      );
+    }
     const directions = ["left", "right"];
     const terms: any = joined.trim().split(" ");
     const wallet = await (await this.client.getUser(user)).wallet;
@@ -44,6 +48,13 @@ export default class Command extends BaseCommand {
       gif =
         "https://p14cdn4static.sharpschool.com/UserFiles/Servers/Server_1584893/Image/Buttons/right-arrow-31.gif";
     }
+    const buttons = [
+      {
+        buttonId: "wallet",
+        buttonText: { displayText: `${this.client.config.prefix}wallet` },
+        type: 1,
+      },
+    ];
     const amount: number = terms[0];
     const luck: string = terms[1].toLowerCase();
     if (isNaN(amount))
@@ -66,6 +77,10 @@ export default class Command extends BaseCommand {
       );
     if (luck !== direction) {
       await this.client.reduceGold(user, amount);
+      await this.client.DB.cd.updateOne(
+        { jid: user },
+        { $set: { gamble: Date.now() } }
+      );
       const sticker: any = await new Sticker(gif, {
         pack: `${direction.toUpperCase()}`,
         author: `${direction.toUpperCase()}`,
@@ -75,9 +90,20 @@ export default class Command extends BaseCommand {
         background: "#0000ffff",
       });
       await M.reply(await sticker.build(), MessageType.sticker, Mimetype.webp);
-      await M.reply(`📉 You lost *${amount} gold*.`);
-    } else {
+      const buttonMessage: any = {
+        contentText: `📉 You lost *${amount} gold*.`,
+        footerText: "🎇 Beyond 🎇",
+        buttons: buttons,
+        headerType: 1,
+      };
+      await M.reply(buttonMessage, MessageType.buttonsMessage);
+    }
+    if (luck == direction) {
       await this.client.addGold(user, amount);
+      await this.client.DB.cd.updateOne(
+        { jid: user },
+        { $set: { gamble: Date.now() } }
+      );
       const sticker: any = await new Sticker(gif, {
         pack: `${direction.toUpperCase()}`,
         author: `${direction.toUpperCase()}`,
@@ -87,7 +113,13 @@ export default class Command extends BaseCommand {
         background: "#0000ffff",
       });
       await M.reply(await sticker.build(), MessageType.sticker, Mimetype.webp);
-      await M.reply(`Congratulations You won *${amount} gold*🎊.`);
+      const buttonMessage: any = {
+        contentText: `📈 You won *${amount} gold*.`,
+        footerText: "🎇 Beyond 🎇",
+        buttons: buttons,
+        headerType: 1,
+      };
+      await M.reply(buttonMessage, MessageType.buttonsMessage);
     }
   };
 }
