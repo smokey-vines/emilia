@@ -19,7 +19,8 @@ export default class Command extends BaseCommand {
 
 	run = async (M: ISimplifiedMessage): Promise<void> => {
 		/*eslint-disable @typescript-eslint/no-explicit-any*/
-		const chats: any = this.client.chats
+		const users = await this.client.DB.user.count()
+			const chats: any = this.client.chats
 			.all()
 			.filter((v) => !v.read_only && !v.archive)
 			.map((v) => v.jid)
@@ -36,7 +37,7 @@ export default class Command extends BaseCommand {
 		await M.reply(
 			`*━━━❰ 💃LUMINED💃 ❱━━━*\n\n 🔮 *Groups: ${
 				chats.length
-			}*/69\n\n🚦 *Uptime: ${uptime()}*`
+			}*/69\n\n🟩 *Users: ${users}*\n\n🚦 *Uptime: ${uptime()}*`
 		);
 	};
 }
