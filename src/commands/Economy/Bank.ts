@@ -8,8 +8,8 @@ import { MessageType, Mimetype } from "@adiwajshing/baileys";
 export default class Command extends BaseCommand {
   constructor(client: WAClient, handler: MessageHandler) {
     super(client, handler, {
-      command: "wallet",
-      description: "Displays user-wallet",
+      command: "bank",
+      description: "Displays user-bank",
       category: "economy",
       usage: `${client.config.prefix}wallet`,
       baseXp: 10,
