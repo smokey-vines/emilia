@@ -2,6 +2,7 @@ import MessageHandler from "../../Handlers/MessageHandler";
 import BaseCommand from "../../lib/BaseCommand";
 import WAClient from "../../lib/WAClient";
 import { IParsedArgs, ISimplifiedMessage } from "../../typings";
+import { MessageType, Mimetype } from "@adiwajshing/baileys";
 
 export default class Command extends BaseCommand {
   constructor(client: WAClient, handler: MessageHandler) {
@@ -34,6 +35,22 @@ export default class Command extends BaseCommand {
         `🟥 *You don't have sufficient amount of gold in your bank to make this transaction*.`
       );
     await this.client.withdraw(user, amount);
-    return void M.reply(`You have withdrawn *${amount} gold* from your bank.`);
-  };
+    
+    const buttons = [
+      {
+        buttonId: "wallet",
+        buttonText: { displayText: `${this.client.config.prefix}wallet` },
+        type: 1,
+      },
+    ];
+    
+    const buttonMessage: any = {
+      contentText: `You have withdrawn *${amount} gold* from your bank.`,
+      footerText: "🎇 Beyond 🎇",
+      buttons: buttons,
+      headerType: 1,
+    };
+    await M.reply(buttonMessage, MessageType.buttonsMessage);
+    };
+    
 }

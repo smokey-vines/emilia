@@ -2,6 +2,7 @@ import MessageHandler from "../../Handlers/MessageHandler";
 import BaseCommand from "../../lib/BaseCommand";
 import WAClient from "../../lib/WAClient";
 import { IParsedArgs, ISimplifiedMessage } from "../../typings";
+import { MessageType, Mimetype } from "@adiwajshing/baileys";
 
 export default class Command extends BaseCommand {
   constructor(client: WAClient, handler: MessageHandler) {
@@ -31,6 +32,15 @@ export default class Command extends BaseCommand {
 
     const wallet = await (await this.client.getUser(user)).wallet;
     const bank = await (await this.client.getUser(user)).bank;
+
+    const buttons = [
+      {
+        buttonId: "wallet",
+        buttonText: { displayText: `${this.client.config.prefix}bank` },
+        type: 1,
+      },
+    ];
+
     if (bank >= 1000000)
       return void M.reply(
         `🟥 *You can't have more than 1000000 gold in your bank*.`
@@ -40,6 +50,14 @@ export default class Command extends BaseCommand {
         `🟥 *You don't have sufficient amount of gold in your wallet to make this transaction*.`
       );
     await this.client.deposit(user, amount);
-    return void M.reply(`You have transferred *${amount} gold* to your bank.`);
+    const buttonMessage: any = {
+      contentText: `You have transferred *${amount} gold* to your bank.`,
+      footerText: "🎇 Beyond 🎇",
+      buttons: buttons,
+      headerType: 1,
+    };
+    await M.reply(buttonMessage, MessageType.buttonsMessage);
   };
 }
+
+
