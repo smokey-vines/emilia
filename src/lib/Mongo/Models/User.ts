@@ -37,7 +37,7 @@ const UserSchema = new Schema({
     lastRob: {
         type: Number
     },
-    lastgamble: {
+    lastGamble: {
         type: Number
     }
 })
