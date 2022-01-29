@@ -87,7 +87,7 @@ export default class Command extends BaseCommand {
         background: "#0000ffff",
       });
       await M.reply(await sticker.build(), MessageType.sticker, Mimetype.webp);
-      await M.reply(`📈 You won *${amount} gold*.`);
+      await M.reply(`Congratulations You won *${amount} gold*🎊.`);
     }
   };
 }
