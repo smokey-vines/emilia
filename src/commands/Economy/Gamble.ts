@@ -26,10 +26,10 @@ export default class Command extends BaseCommand {
         `You can't gamble here. Use ${this.client.config.prefix}support to get casino group link.`
       );
     const time = 10;
-      const cd = await (await this.client.getUser(M.sender.jid)).lastRob;
+      const cd = await (await this.client.getUser(M.sender.jid)).lastgamble;
       if (time - (Date.now() - cd) > 0) {
         return void M.reply(
-          `woah there slow down you can use this command after 10 secs`
+          `woah there slow down you can use this command after 15 secs`
         );
       }
     const user = M.sender.jid;
