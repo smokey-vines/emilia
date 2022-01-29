@@ -20,7 +20,7 @@ export default class Command extends BaseCommand {
 	run = async (M: ISimplifiedMessage): Promise<void> => {
 			const buttons = [
 				{
-				  buttonId: "hi",
+				  buttonId: "help",
 				  buttonText: { displayText: `${this.client.config.prefix}help` },
 				  type: 1,
 				},
