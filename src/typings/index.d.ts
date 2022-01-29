@@ -57,6 +57,7 @@ export interface IUser {
   lastDaily: number;
   lastRob: number;
   lastGamble: number;
+  lastSlot: number;
 }
 
 export interface IFeature {
