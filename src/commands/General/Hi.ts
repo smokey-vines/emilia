@@ -18,17 +18,21 @@ export default class Command extends BaseCommand {
 	}
 
 	run = async (M: ISimplifiedMessage): Promise<void> => {
-		const chitoge =
-			"https://c.tenor.com/Sr58qTClyC8AAAPo/genshin-impact-genshin.mp4";
-		return void this.client.sendMessage(
-			M.from,
-			{ url: chitoge },
-			MessageType.video,
-			{
-				quoted: M.WAMessage,
-				mimetype: Mimetype.gif,
-				caption: ` The skies here are full of stars, but they aren't the same as the ones seen from my home. Use something from *${this.client.config.prefix}help* list if you want anything. \n`,
-			}
-		);
+			const buttons = [
+				{
+				  buttonId: "hi",
+				  buttonText: { displayText: `${this.client.config.prefix}help` },
+				  type: 1,
+				},
+			  ];
+			
+			  const buttonMessage: any = {
+				contentText: `HELLO THERE BEYOND BOT HERE`,
+				footerText: "🎇 Beyond 🎇",
+				buttons: buttons,
+				headerType: 1,
+			  };
+			  await M.reply(buttonMessage, MessageType.buttonsMessage);
+		;
 	};
 }
