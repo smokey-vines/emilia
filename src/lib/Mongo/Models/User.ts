@@ -36,6 +36,9 @@ const UserSchema = new Schema({
     },
     lastRob: {
         type: Number
+    },
+    lastgamble: {
+        type: Number
     }
 })
 export default model<IUserModel>('users', UserSchema)
