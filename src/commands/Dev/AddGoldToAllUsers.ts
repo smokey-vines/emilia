@@ -15,7 +15,6 @@ export default class Command extends BaseCommand {
       usage: ``,
       modsOnly: true,
       baseXp: 0,
-      gold: 0,
     });
   }
 
