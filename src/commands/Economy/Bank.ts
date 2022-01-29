@@ -11,7 +11,7 @@ export default class Command extends BaseCommand {
       command: "bank",
       description: "Displays user-bank",
       category: "economy",
-      usage: `${client.config.prefix}wallet`,
+      usage: `${client.config.prefix}bank`,
       baseXp: 10,
     });
   }
