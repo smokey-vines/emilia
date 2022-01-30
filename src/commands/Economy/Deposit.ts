@@ -41,7 +41,7 @@ export default class Command extends BaseCommand {
       },
     ];
 
-    if (bank >= 1000000)
+    if (bank >= 5000000)
       return void M.reply(
         `🟥 *You can't have more than 1000000 gold in your bank*.`
       );
