@@ -54,7 +54,7 @@ export default class Command extends BaseCommand {
     const p = jack[Math.floor(Math.random() * jack.length)];
     const results = [
       "lose",
-      "lose",
+      "win",
       "lose",
       "lose",
       "lose",
@@ -63,6 +63,9 @@ export default class Command extends BaseCommand {
       "win",
       "win",
       "win",
+      "lose",
+      "lose",
+      "win"
       "jackpot",
     ];
     const z = results[Math.floor(Math.random() * results.length)];
@@ -82,7 +85,7 @@ export default class Command extends BaseCommand {
           amount - wallet
         } gold in your wallet to bet with this amount>*`
       );
-    if (amount > 20000)
+    if (amount > 15000)
       return void M.reply(`🟥 *You can't bet more than 20000 gold*.`);
     const head = `🎰 *SLOT MACHINE* 🎰`;
     const buttons = [
