@@ -65,7 +65,7 @@ export default class Command extends BaseCommand {
       "win",
       "lose",
       "lose",
-      "win"
+      "win",
       "jackpot",
     ];
     const z = results[Math.floor(Math.random() * results.length)];
