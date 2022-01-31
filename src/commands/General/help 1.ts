@@ -18,12 +18,14 @@ export default class Command extends BaseCommand {
           { joined }: IParsedArgs): Promise<void> => {
             const buttons = [
               {
-                buttonId: "help 2",
-                buttonText: { displayText: `${this.client.config.prefix}help 2` },
+                buttonId: "help2",
+                buttonText: { displayText: `${this.client.config.prefix}help2` },
                 type: 1,
               },
               ];
-            
+
+              if (!joined)
+              return void M.reply
               const buttonMessage: any = {
               contentText: `
               \n\n_*🪙ECONAMY🪙*_\n\n 
@@ -32,6 +34,7 @@ export default class Command extends BaseCommand {
               buttons: buttons,
               headerType: 1,
               };
+              const chitoge: any = joined.trim();
               await M.reply(buttonMessage, MessageType.buttonsMessage);
               ;
             
