@@ -7,7 +7,7 @@ import { MessageType, Mimetype } from "@adiwajshing/baileys";
 export default class Command extends BaseCommand {
     constructor(client: WAClient, handler: MessageHandler) {
         super(client, handler, {
-            command: 'help',
+            command: 'help 9',
             description: 'Displays the Weeb menu',
             category: 'general',
             aliases: ['h 8']
