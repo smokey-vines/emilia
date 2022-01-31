@@ -7,18 +7,18 @@ import { MessageType, Mimetype } from "@adiwajshing/baileys";
 export default class Command extends BaseCommand {
     constructor(client: WAClient, handler: MessageHandler) {
         super(client, handler, {
-            command: 'help 7',
+            command: 'help7',
             description: 'Displays the Utils menu',
             category: 'general',
-            aliases: ['h 7']
+            aliases: ['h7']
         })
     }
 
         run = async (M: ISimplifiedMessage): Promise<void> => {
             const buttons = [
               {
-                buttonId: "help 8 ",
-                buttonText: { displayText: `${this.client.config.prefix}help 8` },
+                buttonId: "help8 ",
+                buttonText: { displayText: `${this.client.config.prefix}help8` },
                 type: 1,
               },
               ];
