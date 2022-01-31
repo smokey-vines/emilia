@@ -11,8 +11,6 @@ export default class Command extends BaseCommand {
             command: 'help4',
             description: 'Displays the Educative menu',
             category: 'general',
-            usage: `${client.config.prefix}help 2 (command_name)`,
-            dm: true,
             aliases: ['h4']
         })
     }
