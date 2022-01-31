@@ -24,9 +24,7 @@ export default class Command extends BaseCommand {
               ];
             
               const buttonMessage: any = {
-              contentText: `
-              \n\n_*🪙ECONAMY🪙*_\n\n 
-              🎊${this.client.config.prefix}slot\n\n🎊 ${this.client.config.prefix}gamble\n\n🎊 ${this.client.config.prefix}give\n\n🎊 ${this.client.config.prefix}bank\n\n🎊 ${this.client.config.prefix}rob\n\n🎊 ${this.client.config.prefix}wallet\n\n🎊 ${this.client.config.prefix}deposit\n\n🎊 ${this.client.config.prefix}withdraw🎊${this.client.config.prefix}daily `,
+              contentText: `_*🪙ECONOMY🪙*_\n\n🎊 ${this.client.config.prefix}slot\n\n🎊 ${this.client.config.prefix}gamble\n\n🎊 ${this.client.config.prefix}give\n\n🎊 ${this.client.config.prefix}bank\n\n🎊 ${this.client.config.prefix}rob\n\n🎊 ${this.client.config.prefix}wallet\n\n🎊 ${this.client.config.prefix}deposit\n\n🎊 ${this.client.config.prefix}withdraw\n\n🎊 ${this.client.config.prefix}daily `,
               footerText: "🎇 Beyond 🎇",
               buttons: buttons,
               headerType: 1,
