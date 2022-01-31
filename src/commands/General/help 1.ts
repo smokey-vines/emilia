@@ -7,7 +7,7 @@ import { MessageType, Mimetype } from "@adiwajshing/baileys";
 export default class Command extends BaseCommand {
     constructor(client: WAClient, handler: MessageHandler) {
         super(client, handler, {
-            command: 'help',
+            command: 'help 1',
             description: 'Displays the Econamy menu',
             category: 'general',
             aliases: ['h 1']
