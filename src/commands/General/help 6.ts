@@ -19,7 +19,7 @@ export default class Command extends BaseCommand {
             const buttons = [
               {
                 buttonId: "help7 ",
-                buttonText: { displayText: `${this.client.config.prefix}help 7` },
+                buttonText: { displayText: `${this.client.config.prefix}help7` },
                 type: 1,
               },
               ];
