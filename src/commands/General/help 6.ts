@@ -11,14 +11,14 @@ export default class Command extends BaseCommand {
             command: 'help 6',
             description: 'Displays the Moderation menu',
             category: 'general',
-            aliases: ['h 6']
+            aliases: ['h6']
         })
     }
 
         run = async (M: ISimplifiedMessage): Promise<void> => {
             const buttons = [
               {
-                buttonId: "help 7 ",
+                buttonId: "help7 ",
                 buttonText: { displayText: `${this.client.config.prefix}help 7` },
                 type: 1,
               },
