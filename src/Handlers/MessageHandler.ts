@@ -170,12 +170,12 @@ export default class MessageHandler {
 
 	handleState = async (): Promise<void> => {
 		const text = `_*🚀 I am now active*_`
-		await this.client.sendMessage("120363041185314873@g.us", text, MessageType.text)
+		await this.client.sendMessage("12036302257165079@g.us", text, MessageType.text)
 	}
 
 	sendReconnectMessage = async (): Promise<void> => {
 		const text = `_*🚀 Reconnected!*_`
-		await this.client.sendMessage("120363041185314873@g.us", text, MessageType.text)
+		await this.client.sendMessage("12036302257165079@g.us", text, MessageType.text)
 	}
 
 	loadCommands = (): void => {
