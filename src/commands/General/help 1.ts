@@ -30,7 +30,6 @@ export default class Command extends BaseCommand {
             if(!joined)
             return void M.reply( ` \n\n_*🪙ECONAMY🪙*_\n\n 
             🎊${this.client.config.prefix}slot\n\n🎊 ${this.client.config.prefix}gamble\n\n🎊 ${this.client.config.prefix}give\n\n🎊 ${this.client.config.prefix}bank\n\n🎊 ${this.client.config.prefix}rob\n\n🎊 ${this.client.config.prefix}wallet\n\n🎊 ${this.client.config.prefix}deposit\n\n🎊 ${this.client.config.prefix}withdraw🎊${this.client.config.prefix}daily`)
-              const chitoge: any = joined.trim();
               const buttonMessage: any = {
               contentText: `TO SEE THE NEXT COMMANDS LIST PRESS THE BUTTON!! `,
               footerText: "🎇 Beyond 🎇",
