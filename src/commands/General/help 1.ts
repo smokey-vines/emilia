@@ -7,16 +7,17 @@ import { MessageType, Mimetype } from "@adiwajshing/baileys";
 export default class Command extends BaseCommand {
     constructor(client: WAClient, handler: MessageHandler) {
         super(client, handler, {
-            command: 'help 1',
+            command: 'help1',
             description: 'Displays the Econamy menu',
             category: 'general',
-            aliases: ['h 1'],
-            usage: `${client.config.prefix}help [1]`,
+            aliases: ['h1']
         })
     }
 
-        run = async (M: ISimplifiedMessage,
-          { joined }: IParsedArgs): Promise<void> => {
+    run = async (
+      M: ISimplifiedMessage,
+      { joined }: IParsedArgs
+    ): Promise<void> => {
             const buttons = [
               {
                 buttonId: "help2",
@@ -24,19 +25,19 @@ export default class Command extends BaseCommand {
                 type: 1,
               },
               ];
-
-              if (!joined)
-              return void M.reply
+            
+            if(!joined)
+            return void M.reply( ` \n\n_*🪙ECONAMY🪙*_\n\n 
+            🎊${this.client.config.prefix}slot\n\n🎊 ${this.client.config.prefix}gamble\n\n🎊 ${this.client.config.prefix}give\n\n🎊 ${this.client.config.prefix}bank\n\n🎊 ${this.client.config.prefix}rob\n\n🎊 ${this.client.config.prefix}wallet\n\n🎊 ${this.client.config.prefix}deposit\n\n🎊 ${this.client.config.prefix}withdraw🎊${this.client.config.prefix}daily`)
+              const chitoge: any = joined.trim();
               const buttonMessage: any = {
-              contentText: `
-              \n\n_*🪙ECONAMY🪙*_\n\n 
-              🎊${this.client.config.prefix}slot\n\n🎊 ${this.client.config.prefix}gamble\n\n🎊 ${this.client.config.prefix}give\n\n🎊 ${this.client.config.prefix}bank\n\n🎊 ${this.client.config.prefix}rob\n\n🎊 ${this.client.config.prefix}wallet\n\n🎊 ${this.client.config.prefix}deposit\n\n🎊 ${this.client.config.prefix}withdraw🎊${this.client.config.prefix}daily `,
+              contentText: `TO SEE THE NEXT COMMANDS LIST PRESS THE BUTTON!! `,
               footerText: "🎇 Beyond 🎇",
               buttons: buttons,
               headerType: 1,
               };
-              const chitoge: any = joined.trim();
               await M.reply(buttonMessage, MessageType.buttonsMessage);
+              ;
               ;
             
             };
