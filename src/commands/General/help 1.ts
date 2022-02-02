@@ -29,8 +29,6 @@ export default class Command extends BaseCommand {
             if (!joined)
             return void (await M.reply( ` Not like that use ${this.client.config.prefix}help 1 `))
         
-            const help : any = joined.trim().;
-          
             this.client.sendMessage
             const buttons = [
              {
