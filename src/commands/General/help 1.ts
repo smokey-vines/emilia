@@ -1,10 +1,19 @@
+/**
+ * /*eslint-disable @typescript-eslint/no-explicit-any
+ *
+ * @format
+ */
+
+/*eslint-disable @typescript-eslint/no-unused-vars*/
 import MessageHandler from "../../Handlers/MessageHandler";
 import BaseCommand from "../../lib/BaseCommand";
 import WAClient from "../../lib/WAClient";
 import { IParsedArgs, ISimplifiedMessage } from "../../typings";
 import { MessageType, Mimetype } from "@adiwajshing/baileys";
+import { join } from "path/posix";
 
 export default class Command extends BaseCommand {
+    
     constructor(client: WAClient, handler: MessageHandler) {
         super(client, handler, {
             command: 'help 1',
@@ -15,30 +24,33 @@ export default class Command extends BaseCommand {
         })
     }
 
-    run = async (
-      M: ISimplifiedMessage,
-      { joined }: IParsedArgs
-    ): Promise<void> => {
+    run = async (M: ISimplifiedMessage, { joined }: IParsedArgs): Promise<void> => {
+            
+            if (!joined)
+            return void (await M.reply( ` Not like that use ${this.client.config.prefix}help 1 `))
+        
+            const help : any = joined.trim().;
+          
+            this.client.sendMessage
             const buttons = [
-              {
+             {
                 buttonId: "help2",
                 buttonText: { displayText: `${this.client.config.prefix}help2` },
                 type: 1,
               },
               ];
             
-            if(!joined)
-            return void M.reply( ` \n\n_*🪙ECONAMY🪙*_\n\n 
-            🎊${this.client.config.prefix}slot\n\n🎊 ${this.client.config.prefix}gamble\n\n🎊 ${this.client.config.prefix}give\n\n🎊 ${this.client.config.prefix}bank\n\n🎊 ${this.client.config.prefix}rob\n\n🎊 ${this.client.config.prefix}wallet\n\n🎊 ${this.client.config.prefix}deposit\n\n🎊 ${this.client.config.prefix}withdraw🎊${this.client.config.prefix}daily`)
               const buttonMessage: any = {
-              contentText: `TO SEE THE NEXT COMMANDS LIST PRESS THE BUTTON!! `,
+              contentText: `\n\n_*🪙ECONAMY🪙*_\n\n 
+              🎊${this.client.config.prefix}slot\n\n🎊 ${this.client.config.prefix}gamble\n\n🎊 ${this.client.config.prefix}give\n\n🎊 ${this.client.config.prefix}bank\n\n🎊 ${this.client.config.prefix}rob\n\n🎊 ${this.client.config.prefix}wallet\n\n🎊 ${this.client.config.prefix}deposit\n\n🎊 ${this.client.config.prefix}withdraw🎊${this.client.config.prefix}daily`,
               footerText: "🎇 Beyond 🎇",
               buttons: buttons,
               headerType: 1,
               };
               await M.reply(buttonMessage, MessageType.buttonsMessage);
               ;
-              ;
+              
             
             };
           }
+        
