@@ -11,6 +11,9 @@ const cdSchema = new Schema({
   },
   slot: {
       type: Number
+   },
+  rob: {
+      type:Number
   }
 });
 export default model<ICountdown>("countdown", cdSchema);
