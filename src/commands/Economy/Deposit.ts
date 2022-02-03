@@ -49,6 +49,7 @@ export default class Command extends BaseCommand {
       return void M.reply(
         `🟥 *You don't have sufficient amount of gold in your wallet to make this transaction*.`
       );
+    if (bank < 5000000)
     await this.client.deposit(user, amount);
     const buttonMessage: any = {
       contentText: `You have transferred *${amount} gold* to your bank.`,
