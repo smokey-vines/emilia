@@ -2,6 +2,7 @@ import MessageHandler from "../../Handlers/MessageHandler";
 import BaseCommand from "../../lib/BaseCommand";
 import WAClient from "../../lib/WAClient";
 import { ISimplifiedMessage } from "../../typings";
+import ms from "parse-ms-js";
 import { MessageType } from "@adiwajshing/baileys";
 
 export default class Command extends BaseCommand {
@@ -22,8 +23,9 @@ export default class Command extends BaseCommand {
     const time = 900000;
     const cd = await (await this.client.getUser(M.sender.jid)).lastRob;
     if (time - (Date.now() - cd) > 0) {
+      const timeLeft = ms(time - (Date.now() - cd));
       return void M.reply(
-        `You have recently attempted to rob someone. Give it a break.`
+        `You can rob again after *${timeLeft.seconds} second(s)*. Give it a break.`
       );
     }
     const user = M.sender.jid;
