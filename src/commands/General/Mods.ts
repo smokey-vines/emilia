@@ -16,7 +16,7 @@ export default class Command extends BaseCommand {
 
     run = async (M: ISimplifiedMessage): Promise<void> => {
         if (!this.client.config.mods || !this.client.config.mods[0]) return void M.reply('*[UNMODERATED]*')
-        const filteredMap = this.client.config.mods.map((mod) => this.client.getuser(mod)).filter((user) => user)
+        const filteredMap = this.client.config.mods.map((mod) => this.client.getUser(mod)).filter((user) => user)
         let text = '🍥 *Moderators* 🍥\n\n'
         filteredMap.forEach(
             (user, index) =>
