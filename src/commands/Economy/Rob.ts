@@ -25,7 +25,7 @@ export default class Command extends BaseCommand {
     if (time - (Date.now() - cd) > 0) {
       const timeLeft = ms(time - (Date.now() - cd));
       return void M.reply(
-        `You can rob again after *${timeLeft.seconds} second(s)*. Give it a break.`
+        `You can rob again after ${timeLeft.minutes} minute(s), *${timeLeft.seconds} second(s)*. Give it a break.`
       );
     }
     const user = M.sender.jid;
