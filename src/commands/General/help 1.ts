@@ -26,7 +26,6 @@ export default class Command extends BaseCommand {
             if (!joined)
             return void (await M.reply(`that's not the way bruh.Use ${this.client.config.prefix}help 1`));
             const help: any = joined.trim();
-            if ( help === 1) {
             const buttons = [
               {
                 buttonId: "help2",
@@ -34,7 +33,7 @@ export default class Command extends BaseCommand {
                 type: 1,
               },
               ];
-            
+              if ( help === 1) {
               const buttonMessage: any = {
               contentText: `\n\n_*🪙ECONAMY🪙*_\n\n 
               🎊${this.client.config.prefix}slot\n\n🎊 ${this.client.config.prefix}gamble\n\n🎊 ${this.client.config.prefix}give\n\n🎊 ${this.client.config.prefix}bank\n\n🎊 ${this.client.config.prefix}rob\n\n🎊 ${this.client.config.prefix}wallet\n\n🎊 ${this.client.config.prefix}deposit\n\n🎊 ${this.client.config.prefix}withdraw🎊${this.client.config.prefix}daily`,
