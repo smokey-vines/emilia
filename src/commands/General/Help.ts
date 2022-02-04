@@ -60,7 +60,7 @@ export default class Command extends BaseCommand {
 				{ url: chitoge },
 				MessageType.image,
 				{
-					mimetype: Mimetype.jpg,
+					mimetype: Mimetype.jpeg,
 					caption: `${text} 📝 *Note: Use ${this.client.config.prefix}help <command_name> to view the command info*`,
 					contextInfo: { mentionedJid: [user] },
 				}
