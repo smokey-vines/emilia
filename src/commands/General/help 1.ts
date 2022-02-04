@@ -9,9 +9,7 @@ import MessageHandler from "../../Handlers/MessageHandler";
 import BaseCommand from "../../lib/BaseCommand";
 import WAClient from "../../lib/WAClient";
 import { IParsedArgs, ISimplifiedMessage } from "../../typings";
-import { MessageType, Mimetype } from "@adiwajshing/baileys";
-import { join } from "path/posix";
-
+import { MessageType } from "@adiwajshing/baileys";
 export default class Command extends BaseCommand {
     
     constructor(client: WAClient, handler: MessageHandler) {
@@ -25,13 +23,13 @@ export default class Command extends BaseCommand {
     }
 
     run = async (M: ISimplifiedMessage, { joined }: IParsedArgs): Promise<void> => {
-            
             if (!joined)
-            return void (await M.reply( ` Not like that use ${this.client.config.prefix}help 1 `))
-        
+            return void (await M.reply(`that's not the way bruh.Use ${this.client.config.prefix}help 1`));
+            const help: any = joined.trim();
+            if ( help === 1) {
             this.client.sendMessage
             const buttons = [
-             {
+              {
                 buttonId: "help2",
                 buttonText: { displayText: `${this.client.config.prefix}help2` },
                 type: 1,
@@ -51,4 +49,4 @@ export default class Command extends BaseCommand {
             
             };
           }
-        
+        }
