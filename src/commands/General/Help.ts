@@ -55,12 +55,7 @@ export default class Command extends BaseCommand {
 				)} ❱━━━*\n❐ \`\`\`${categories[key]
 					.map((command) => command.config?.command)
 					.join(" \n ")}\`\`\`\n\n`;
-			return void this.client.sendMessage(
-				M.from,
-				{ url: chitoge },
-				MessageType.image,
-				{
-					mimetype: Mimetype.jpeg,
+			return void this.client.sendMessage( M.from, { url: chitoge }, MessageType.image, {
 					caption: `${text} 📝 *Note: Use ${this.client.config.prefix}help <command_name> to view the command info*`,
 					contextInfo: { mentionedJid: [user] },
 				}
