@@ -14,10 +14,10 @@ export default class Command extends BaseCommand {
     
     constructor(client: WAClient, handler: MessageHandler) {
         super(client, handler, {
-            command: 'help 1',
+            command: "help",
             description: 'Displays the Econamy menu',
-            category: 'general',
-            aliases: ['h 1'],
+            category: "general",
+            aliases: ["h"],
             usage: `${client.config.prefix}help [1]`,
         })
     }
