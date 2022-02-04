@@ -27,7 +27,6 @@ export default class Command extends BaseCommand {
             return void (await M.reply(`that's not the way bruh.Use ${this.client.config.prefix}help 1`));
             const help: any = joined.trim();
             if ( help === 1) {
-            this.client.sendMessage
             const buttons = [
               {
                 buttonId: "help2",
