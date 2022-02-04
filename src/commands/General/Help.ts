@@ -22,7 +22,7 @@ export default class Command extends BaseCommand {
 	): Promise<void> => {
 		const user = M.sender.jid;
 		const chitoge =
-			"https://raw.githubusercontent.com/BEYOND-THE-WORLD/lumine-/main/assets/images/beyond.jpeg?token=GHSAT0AAAAAABQEMAL552XLXTBCDV47ZOGWYP5G5SQ";
+			"https://c.tenor.com/eKprHv8jU8UAAAPo/mihoyo-genshin.mp4";
 		if (!parsedArgs.joined) {
 			const commands = this.handler.commands.keys();
 			const categories: { [key: string]: ICommand[] } = {};
@@ -55,7 +55,13 @@ export default class Command extends BaseCommand {
 				)} ❱━━━*\n❐ \`\`\`${categories[key]
 					.map((command) => command.config?.command)
 					.join(" \n ")}\`\`\`\n\n`;
-			return void this.client.sendMessage( M.from, { url: chitoge }, MessageType.image, {
+			return void this.client.sendMessage(
+				M.from,
+				{ url: chitoge },
+				MessageType.video,
+				{
+					quoted: M.WAMessage,
+					mimetype: Mimetype.gif,
 					caption: `${text} 📝 *Note: Use ${this.client.config.prefix}help <command_name> to view the command info*`,
 					contextInfo: { mentionedJid: [user] },
 				}
