@@ -21,7 +21,7 @@ export default class Command extends BaseCommand {
         M.sender.jid,
         `*HELLO THERE 🎉*\n\n
         _*BEYOND NEWS*_: https://chat.whatsapp.com/Ie0ghO3LSYl5CMzkfICoCO\n\n 
-        _*WELCOME TO BEYOND*_:https://chat.whatsapp.com/GWmg5Plzeu2EaTUTXSoUj2\n\n
+        _*WELCOME TO BEYOND*_:https://chat.whatsapp.com/HGH0SFq4w0B6IgSWJkgtt5\n\n
         _*BEYOND CASINO*_:https://chat.whatsapp.com/EmfhxmgQhNfIUxiE8NHCvq\n\n`,
            MessageType.text
         ))
