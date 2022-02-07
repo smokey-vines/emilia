@@ -17,10 +17,12 @@ export default class Command extends BaseCommand {
     run = async (M: ISimplifiedMessage): Promise<void> => {
         if (!this.client.config.mods || !this.client.config.mods[0]) return void M.reply('*[UNMODERATED]*')
         const filteredMap = this.client.config.mods.map((mod) => this.client.getContact(mod)).filter((user) => user)
-        let text = '_*🎆BEYOND OWNERS🎆*_\n\n'
+        let text = '🎆Beyond owners🎆\n\n'
         filteredMap.forEach(
             (user, index) =>
-                (text += `#${index + 1}\n🎉 *Username*: @${user.split("@")[0]}`)
+                (text += `#${index + 1}\n🎉 *Username: ${
+                    user.notify || user.vname || user.name || 'null'
+                }*\n @${user.split("@")[0]}\n\n`)
         )
         text += `\n 💖EMILIA💖`
         return void M.reply(text)
