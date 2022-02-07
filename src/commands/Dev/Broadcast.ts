@@ -29,13 +29,8 @@ export default class Command extends BaseCommand {
 			return void (await M.reply(`Please provide the Broadcast Message.`));
 		const term = joined.trim();
 		const images = [
-			"https://wallpapercave.com/wp/wp7487067.jpg",
-			"https://wallpapercave.com/wp/wp7486872.jpg",
-			"https://wallpapercave.com/wp/wp7487045.jpg",
-			"https://wallpapercave.com/wp/wp8467619.jpg",
-			"https://wallpapercave.com/wp/wp8467629.jpg",
-			"https://wallpapercave.com/wp/wp7648534.jpg",
-		        "https://wallpapercave.com/wp/wp8467660.jpg",
+			"https://wallpapercave.com/uwp/uwp1997565.jpeg",
+			"https://wallpapercave.com/uwpt/uwp1997563.jpeg",
 		];
 		const selected = images[Math.floor(Math.random() * images.length)];
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,11 +41,10 @@ export default class Command extends BaseCommand {
 			.map((jids) => (jids.includes("g.us") ? jids : null))
 			.filter((v) => v);
 		for (let i = 0; i < chats.length; i++) {
-			const text = `*💃「 LUMINE 」💃*\n\n${term}\n\n Regards ~ *${M.sender.username}*`;
+			const text = `🎆_*BEYOND*_🎆\n\n${term}\n\n Regards ~ *${M.sender.username}*`;
 			this.client.sendMessage(chats[i], { url: selected }, MessageType.image, {
 				caption: `${text}`,
 				contextInfo: {
-					mentionedJid: M.groupMetadata?.participants.map((user) => user.jid),
 				},
 			});
 		}
