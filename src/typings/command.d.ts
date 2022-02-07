@@ -32,6 +32,8 @@ export type TCategory =
 	| "general"
 	| "media"
 	| "moderation"
+        | "music"
+        | "youtube"
 	| "nsfw"
 	| "utils"
 	| "weeb"
