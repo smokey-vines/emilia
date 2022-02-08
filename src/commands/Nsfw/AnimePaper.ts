@@ -13,7 +13,7 @@ export default class Command extends BaseCommand {
 			command: "animepaper",
 			description: `Anime paper ;)\nType ${client.config.prefix}apaper to check all available options`,
 			aliases: ["apaper", "ap"],
-			category: "weeb",
+			category: "nsfw",
 			usage: `${client.config.prefix}animepaper [option]`,
 			baseXp: 20,
 		});
