@@ -31,6 +31,12 @@ const UserSchema = new Schema({
         required: true,
         default: 0
     },
+    coin: {
+        type: Number
+    },
+    pokemons: {
+        type: Number
+    },
     lastDaily: {
         type: Number
     },
