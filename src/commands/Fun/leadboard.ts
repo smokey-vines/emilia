@@ -42,7 +42,7 @@ for(const users of lb){
                      : this.client.contacts[users.jid] ? this.client.contacts[users.jid].short
                      : `@${users.jid.split('@')[0]}`
 
-        let text = `#${i}\n*🎆user : ${username}\n🎊xp: ${users.Xp}\n🗄️storage : ${users.coin}\n🪙gold : ${users.wallet}\n♦️pokemon : ${users.pokemons.length}`
+        let text = `#${i}\n*🎆user : ${username}\n🎊xp: ${users.Xp}\n🗄️storage : ${users.coin}\n🪙gold : ${users.wallet}\n`
         message.push(text)
     }
 console.log(message);
