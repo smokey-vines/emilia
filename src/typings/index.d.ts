@@ -54,6 +54,8 @@ export interface IUser {
   Xp: number;
   wallet: number;
   bank: number;
+  coin: number;
+  pokemons: number;
   lastDaily: number;
   lastRob: number;
 }
