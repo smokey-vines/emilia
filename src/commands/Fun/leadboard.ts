@@ -28,7 +28,7 @@ run = async (M: ISimplifiedMessage): Promise<void> => {
 //   M.reply(JSON.stringify(lb));
 
 // M.reply('total user heuhue :'+indexes.toString())
-let message = ['total users huehue :'+indexes.toString()+''];
+let message = ['_*USERS*_ :'+indexes.toString()+''];
 let mention = [];
 let i = 0
 for(const users of lb){
@@ -42,7 +42,7 @@ for(const users of lb){
                      : this.client.contacts[users.jid] ? this.client.contacts[users.jid].short
                      : `@${users.jid.split('@')[0]}`
 
-        let text = `#${i}\n*🎆user : ${username}\n🎊xp: ${users.Xp}\n🗄️storage : ${users.coin}\n🪙gold : ${users.wallet}\n`
+        let text = `#${i}\n*🎆USER* : ${username}\n*🎊XP*: ${users.Xp}\n*🏦BANK* : ${users.coin}\n*🪙gold* : ${users.wallet}\n`
         message.push(text)
     }
 console.log(message);
