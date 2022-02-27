@@ -30,7 +30,7 @@ export default class Command extends BaseCommand {
           
             const buttonMessage: any = {
             contentText: `please press the button to continue`,
-            footerText: "🎇 Beyond 🎇",
+            footerText: "💙 Boyka 💙",
             buttons: buttons,
             headerType: 1,
             };
